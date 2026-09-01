@@ -3,6 +3,7 @@ import StatCard from '../components/StatCard';
 import { about, softSkills ,staticStats } from '../data/aboutData';
 import { projectsData} from '../data/projectsData';
 import { educationData } from '../data/educationData';
+import { isImageIcon } from '../utils/icon';
 import {
   ProjectsIcon,
   EducationIcon,
@@ -97,7 +98,13 @@ export default function AboutSection({ setActiveTab }) {
               key={index}
               className="bg-slate-900/60 border border-slate-800/80 p-4 rounded-xl flex items-center gap-3 hover:border-blue-500/80 transition-all"
             >
-              <span className="text-xl">{skill.icon}</span>
+              <span className="w-6 h-6 flex items-center justify-center text-xl shrink-0">
+                {isImageIcon(skill.icon) ? (
+                  <img src={skill.icon} alt="" className="w-5 h-5 object-contain" />
+                ) : (
+                  skill.icon
+                )}
+              </span>
               <span className="text-sm font-semibold text-slate-200">
                 {skill.title}
               </span>
