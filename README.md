@@ -1,16 +1,49 @@
-# React + Vite
+# Ronald Mora — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio web personal, construido con **React + Vite + Tailwind CSS**, para mostrar mi formación, proyectos y forma de trabajar como estudiante de Desarrollo de Software.
 
-Currently, two official plugins are available:
+🔗 **Demo en vivo:** https://7ronmor7.github.io/NOMBRE-DEL-REPO/ <!-- TODO: pon aquí la URL exacta que te dio GitHub Pages -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Secciones
 
-## React Compiler
+- **Home** — presentación, carrusel de tecnologías con las que trabajo
+- **About** — quién soy, estadísticas (proyectos, tecnologías, cursos) y mis fortalezas/actitudes
+- **Skills** — tecnologías organizadas por categoría (Frontend, Backend, Databases, Tools), con detalle al pasar el cursor o tocar
+- **Education** — formación académica, cursos y certificaciones, filtrables por tipo
+- **Projects** — proyectos con galería de capturas y demo (sitio en vivo o video, según el proyecto)
+- **Contact** — formulario funcional (conectado a Web3Forms) + disponibilidad actual
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Web3Forms](https://web3forms.com/) — envío del formulario de contacto sin backend propio
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Estructura del proyecto
+
+```
+src/
+├── assets/       # imágenes, íconos y videos locales
+├── components/   # piezas reutilizables (tarjetas, modales, formularios)
+├── data/         # contenido separado del código (textos, proyectos, skills, etc.)
+├── pages/        # cada sección del sitio (Hero, About, Skills, Education, Projects, Contact)
+└── styles/       # animaciones globales
+```
+
+## Correr el proyecto en local
+
+```bash
+git clone https://github.com/7RonMor7/NOMBRE-DEL-REPO.git
+cd NOMBRE-DEL-REPO
+npm install
+npm run dev
+```
+
+Abre `http://localhost:5173` en tu navegador.
+
+## Autor
+
+**Ronald Mora**
+Estudiante de Tecnología en Desarrollo de Software — Institución Universitaria Pascual Bravo
+[GitHub](https://github.com/7RonMor7)
