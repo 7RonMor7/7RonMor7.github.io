@@ -1,8 +1,8 @@
-# Ronald Mora — Portfolio
+# Ronald Moreno — Portfolio
 
 Portafolio web personal, construido con **React + Vite + Tailwind CSS**, para mostrar mi formación, proyectos y forma de trabajar como estudiante de Desarrollo de Software.
 
-🔗 **Demo en vivo:** https://7ronmor7.github.io/NOMBRE-DEL-REPO/ <!-- TODO: pon aquí la URL exacta que te dio GitHub Pages -->
+🔗 **Demo en vivo:** https://7ronmor7.github.io/7RonMor7/ 
 
 ## Secciones
 
@@ -44,6 +44,6 @@ Abre `http://localhost:5173` en tu navegador.
 
 ## Autor
 
-**Ronald Mora**
+**Ronald Moreno**
 Estudiante de Tecnología en Desarrollo de Software — Institución Universitaria Pascual Bravo
 [GitHub](https://github.com/7RonMor7)
