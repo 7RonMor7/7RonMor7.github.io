@@ -1,0 +1,86 @@
+/* Animaciones reutilizables en todo el portafolio.
+   Importa este archivo UNA sola vez (por ejemplo en index.css o App.jsx)
+   en vez de definir @keyframes repetidos en cada componente. */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scaleX(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Clases de utilidad, equivalentes a lo que "animate-fade-in" prometía ser */
+.animate-fade-in {
+  animation: fade-in-up 0.4s ease-out;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.25s ease-out;
+  transform-origin: center;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* -50% porque el listado de tecnologías se duplica para simular scroll infinito */
+    transform: translateX(-50%);
+  }
+}
+ 
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+ 
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+ 
+.animate-modal-in {
+  animation: modal-in 0.18s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-scale,
+  .animate-marquee,
+  .animate-modal-in {
+    animation: none;
+  }
+}
