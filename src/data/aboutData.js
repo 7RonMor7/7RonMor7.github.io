@@ -3,6 +3,9 @@
 // para que este archivo se mantenga como datos puros, sin JSX.
 
 import CerebroIcon from '../assets/images/cerebro.png';
+import WorkTeamIcon from '../assets/images/workteam.png';
+import PensamientoIcon from '../assets/images/pensamiento.png';
+import AdaptabilidadIcon from '../assets/images/learning.png';
 
 export const about = {
   badge: 'ABOUT ME',
@@ -27,8 +30,8 @@ export const staticStats = [
 */
 
 export const softSkills = [
-  { title: 'Resolución de problemas', icon: '🧠' },
-  { title: 'Trabajo en equipo', icon: '🤝' },
-  { title: 'Pensamiento crítico', icon: '💡' },
-  { title: 'Adaptabilidad y aprendizaje autónomo', icon: '🚀' },
+  { title: 'Resolución de problemas', icon: CerebroIcon },
+  { title: 'Trabajo en equipo', icon: WorkTeamIcon },
+  { title: 'Pensamiento crítico', icon: PensamientoIcon },
+  { title: 'Adaptabilidad y aprendizaje autónomo', icon: AdaptabilidadIcon },
 ];
