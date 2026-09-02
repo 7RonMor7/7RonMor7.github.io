@@ -49,6 +49,31 @@ export default function EducationCard({ item }) {
         </div>
       </div>
 
+      {/* Progreso académico (para títulos en curso, sin credencial todavía) */}
+      {item.progress && (
+        <div className="pt-4 mt-4 border-t border-slate-800/50 space-y-2">
+          <div className="flex items-center justify-between text-[11px]">
+            <span className="text-amber-400 font-semibold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              {item.status}
+            </span>
+            <span className="text-slate-400 font-mono">
+              {item.progress.creditsCompleted} / {item.progress.creditsTotal} créditos
+            </span>
+          </div>
+          <div className="w-full bg-slate-800/80 rounded-full h-2 overflow-hidden border border-slate-700/30">
+            <div
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 h-full rounded-full transition-all duration-1000 ease-out"
+              style={{
+                width: `${Math.round(
+                  (item.progress.creditsCompleted / item.progress.creditsTotal) * 100
+                )}%`,
+              }}
+            />
+          </div>
+        </div>
+      )}
+
       {/* Enlace opcional al certificado/credencial */}
       {item.credentialUrl && (
         <div className="pt-4 mt-4 border-t border-slate-800/50 flex justify-between items-center text-xs">

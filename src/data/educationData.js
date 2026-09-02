@@ -1,6 +1,3 @@
-// TODO: reemplaza institución, período, credentialUrl y descripciones
-// por tu información real antes de publicar.
-
 import javaIcon from '../assets/icons/java.svg';
 import pythonIcon from '../assets/icons/python.svg';
 import gorroIcon from '../assets/images/gorro-graduacion.png';
@@ -18,13 +15,14 @@ export const educationData = [
     id: 'edu-1',
     type: 'university',
     title: 'Tecnología en Desarrollo de Software',
-    institution: 'Institución Universitaria Pascual Bravo', // TODO: nombre real
-    period: '2024 - 2027', // TODO: fechas reales
+    institution: 'Institución Universitaria Pascual Bravo',
+    period: '2024 - 2027', 
     status: 'En curso',
     description: 'Formación profesional enfocada en el diseño, desarrollo, implementación y gestión de sistemas informáticos.',
     skills: ['Estructura de Datos', 'POO', 'Diseñador de interfaz gráfica', 'Bases de Datos Relacionales', 'Analísta de Requisitos'],
     icon: gorroIcon,
-    credentialUrl: '#', // TODO: link real si aplica
+    progress: { creditsCompleted: 64, creditsTotal: 96 }, // Ejemplo de progreso académico
+    credentialUrl: null, // TODO: link real si aplica
   },
 
   // --- CURSOS COMPLETADOS ---
