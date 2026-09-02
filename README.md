@@ -2,7 +2,7 @@
 
 Portafolio web personal, construido con **React + Vite + Tailwind CSS**, para mostrar mi formación, proyectos y forma de trabajar como estudiante de Desarrollo de Software.
 
-🔗 **Demo en vivo:** https://7ronmor7.github.io/7RonMor7/ 
+🔗 **Demo en vivo:** https://7ronmor7.github.io/ 
 
 ## Secciones
 
