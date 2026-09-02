@@ -8,5 +8,5 @@ export default defineConfig({
      react(),
      tailwindcss(),
     ],
-  base: '/7RonMor7/'
+  base: '/'
 })
