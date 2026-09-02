@@ -1,14 +1,28 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import VideoModal from './VideoModal';
+import { useLanguage, t } from '../context/LanguageContext';
 
-const CYCLE_INTERVAL_MS = 1500; 
+const CYCLE_INTERVAL_MS = 1500;
+
+const uiText = {
+  viewProject: { es: 'Ver Proyecto', en: 'View Project' },
+  watchDemo: { es: 'Ver Demo', en: 'Watch Demo' },
+  demoComingSoon: { es: 'Demo próximamente', en: 'Demo coming soon' },
+  desktopApp: { es: 'App de escritorio — ver repositorio', en: 'Desktop app — see repository' },
+  viewLabel: { es: 'vista', en: 'view' },
+  githubRepoLabel: { es: 'Repositorio de', en: 'Repository for' },
+  onGithub: { es: 'en GitHub', en: 'on GitHub' },
+};
 
 export default function ProjectCard({ project }) {
-
-  const [imageIndex, setImageIndex] = React.useState(0);
-  const [isVideoOpen, setIsVideoOpen] = React.useState(false);
+  const { language } = useLanguage();
+  const [imageIndex, setImageIndex] = useState(0);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const intervalRef = useRef(null);
   const hasMultipleImages = project.images.length > 1;
+
+  const title = t(project.title, language);
+  const description = t(project.description, language);
 
   const startCycling = () => {
     if (!hasMultipleImages) return;
@@ -20,15 +34,16 @@ export default function ProjectCard({ project }) {
   const stopCycling = () => {
     clearInterval(intervalRef.current);
     setImageIndex(0);
-  }
+  };
 
   useEffect(() => () => clearInterval(intervalRef.current), []);
 
   return (
-    <div className="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-blue-500/80 transition-all hover:bg-slate-900/90 group flex flex-col justify-between"
-         onMouseEnter={startCycling} 
-         onMouseLeave={stopCycling}
-         onTouchStart={startCycling}
+    <div
+      className="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-blue-500/80 transition-all hover:bg-slate-900/90 group flex flex-col justify-between"
+      onMouseEnter={startCycling}
+      onMouseLeave={stopCycling}
+      onTouchStart={startCycling}
     >
       <div>
         {/* Imagen del proyecto con overlay e id */}
@@ -40,14 +55,13 @@ export default function ProjectCard({ project }) {
             <img
               key={src}
               src={src}
-              alt={`${project.title} - vista ${i + 1}`}
+              alt={`${title} - ${t(uiText.viewLabel, language)} ${i + 1}`}
               className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 ${
                 i === imageIndex ? 'opacity-100' : 'opacity-0'
               }`}
             />
           ))}
- 
-          {/* Puntitos indicadores, solo si hay más de una imagen */}
+
           {hasMultipleImages && (
             <div className="absolute bottom-2 right-2 flex gap-1 z-10">
               {project.images.map((_, i) => (
@@ -65,11 +79,11 @@ export default function ProjectCard({ project }) {
         {/* Contenido de la Tarjeta */}
         <div className="p-6 space-y-4">
           <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-            {project.title}
+            {title}
           </h3>
 
           <p className="text-slate-400 text-sm leading-relaxed">
-            {project.description}
+            {description}
           </p>
 
           {/* Etiquetas de Tecnologías */}
@@ -95,7 +109,7 @@ export default function ProjectCard({ project }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-blue-500/80 transition-colors"
           >
-            View Project
+            {t(uiText.viewProject, language)}
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -112,16 +126,16 @@ export default function ProjectCard({ project }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            Watch Demo
+            {t(uiText.watchDemo, language)}
           </button>
         )}
 
         {project.demoType === 'video' && !project.videoUrl && (
-          <span className="text-[11px] text-slate-500 italic">Demo próximamente</span>
+          <span className="text-[11px] text-slate-500 italic">{t(uiText.demoComingSoon, language)}</span>
         )}
- 
+
         {project.demoType === 'none' && (
-          <span className="text-[11px] text-slate-500 italic">App de escritorio — ver repositorio</span>
+          <span className="text-[11px] text-slate-500 italic">{t(uiText.desktopApp, language)}</span>
         )}
 
         {project.githubUrl && (
@@ -129,7 +143,7 @@ export default function ProjectCard({ project }) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Repositorio de ${project.title} en GitHub`}
+            aria-label={`${t(uiText.githubRepoLabel, language)} ${title} ${t(uiText.onGithub, language)}`}
             className="text-slate-400 hover:text-white transition-colors"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
@@ -142,7 +156,7 @@ export default function ProjectCard({ project }) {
       <VideoModal
         isOpen={isVideoOpen}
         videoUrl={project.videoUrl}
-        title={project.title}
+        title={title}
         onClose={() => setIsVideoOpen(false)}
       />
     </div>

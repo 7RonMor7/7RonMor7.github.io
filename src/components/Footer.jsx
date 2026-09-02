@@ -1,12 +1,20 @@
 import React from 'react';
 import { navItems } from '../data/navigation';
 import { profile } from '../data/profileData';
+import { useLanguage, t } from '../context/LanguageContext';
+
+const uiText = {
+  rights: { es: 'Desarrollador. Todos los derechos reservados.', en: 'Developer. All rights reserved.' },
+  madeWith: { es: 'Hecho con', en: 'Made with' },
+  by: { es: 'por', en: 'by' },
+};
 
 export default function Footer({ setActiveTab }) {
+  const { language } = useLanguage();
   const year = new Date().getFullYear();
 
-  const handleNavClick = (item) => {
-    setActiveTab(item);
+  const handleNavClick = (key) => {
+    setActiveTab(key);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -15,24 +23,24 @@ export default function Footer({ setActiveTab }) {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
 
         {/* Izquierda: Derechos reservados */}
-        <p>© {year} {profile.name} Developer. All rights reserved.</p>
+        <p>© {year} {profile.name} {t(uiText.rights, language)}</p>
 
         {/* Centro: Enlaces rápidos de navegación */}
         <div className="flex gap-6">
           {navItems.map((item) => (
             <button
-              key={item}
-              onClick={() => handleNavClick(item)}
+              key={item.key}
+              onClick={() => handleNavClick(item.key)}
               className="hover:text-white transition-colors"
             >
-              {item}
+              {item[language]}
             </button>
           ))}
         </div>
 
         {/* Derecha: Crédito de diseño */}
         <p className="flex items-center gap-1">
-          Made with <span className="text-red-500">❤️</span> by {profile.name}
+          {t(uiText.madeWith, language)} <span className="text-red-500">❤️</span> {t(uiText.by, language)} {profile.name}
         </p>
       </div>
     </footer>

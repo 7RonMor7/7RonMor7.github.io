@@ -1,9 +1,18 @@
 import React, { useEffect, useRef } from 'react';
+import { useLanguage, t } from '../context/LanguageContext';
+
+const uiText = {
+  closeVideo: { es: 'Cerrar video', en: 'Close video' },
+  unsupported: {
+    es: 'Tu navegador no soporta la reproducción de video.',
+    en: 'Your browser does not support video playback.',
+  },
+};
 
 export default function VideoModal({ isOpen, videoUrl, title, onClose }) {
+  const { language } = useLanguage();
   const videoRef = useRef(null);
- 
-  // Cierra con Escape
+
   useEffect(() => {
     if (!isOpen) return;
     const onKeyDown = (e) => {
@@ -12,15 +21,14 @@ export default function VideoModal({ isOpen, videoUrl, title, onClose }) {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [isOpen, onClose]);
- 
-  // Pausa el video al cerrar, para que no siga sonando de fondo
+
   const handleClose = () => {
     if (videoRef.current) videoRef.current.pause();
     onClose();
   };
- 
+
   if (!isOpen) return null;
- 
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
@@ -35,13 +43,13 @@ export default function VideoModal({ isOpen, videoUrl, title, onClose }) {
           <button
             type="button"
             onClick={handleClose}
-            aria-label="Cerrar video"
+            aria-label={t(uiText.closeVideo, language)}
             className="text-slate-500 hover:text-white transition-colors text-sm"
           >
             ✕
           </button>
         </div>
- 
+
         <video
           ref={videoRef}
           src={videoUrl}
@@ -49,7 +57,7 @@ export default function VideoModal({ isOpen, videoUrl, title, onClose }) {
           autoPlay
           className="w-full rounded-lg bg-black aspect-video"
         >
-          Tu navegador no soporta la reproducción de video.
+          {t(uiText.unsupported, language)}
         </video>
       </div>
     </div>

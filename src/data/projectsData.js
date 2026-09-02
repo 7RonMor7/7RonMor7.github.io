@@ -1,9 +1,3 @@
-// TODO: reemplaza los arrays "images" con imports reales una vez tengas tus
-// capturas en src/assets/images/projects/. Ejemplo:
-//   import novatech1 from '../assets/images/projects/novatech-1.jpg';
-//   import novatech2 from '../assets/images/projects/novatech-2.jpg';
-//   ...luego usa images: [novatech1, novatech2] en vez de las URLs de abajo.
-//
 // "demoType" controla qué botón de demo se muestra en la tarjeta:
 //   'live'  -> enlace normal a demoUrl (sitio desplegado)
 //   'video' -> botón "Watch Demo" que abre videoUrl (para apps de escritorio
@@ -26,8 +20,10 @@ export const projectsData = [
   {
     id: '01',
     title: 'Novatech',
-    description:
-      'Aplicación full-stack con backend en Spring Boot, frontend en React y base de datos MySQL. Incluye despliegue en producción (backend en Render, frontend en Netlify).',
+    description:{
+      es: 'Aplicación full-stack con backend en Spring Boot, frontend en React y base de datos MySQL. Incluye despliegue en producción (backend en Render, frontend en Netlify).',
+      en: 'Full-stack application with a Spring Boot backend, React frontend and MySQL database. Includes production deployment (backend on Render, frontend on Netlify).',
+    },
     images: [
       novatech1,
       novatech2,
@@ -40,8 +36,11 @@ export const projectsData = [
   },
   {
     id: '02',
-    title: 'Sistema Farmacéutico',
-    description: 'Java (Swing) desktop application for pharmacy management, with connection to a MySQL database.',
+    title: { es: 'Sistema Farmacéutico', en: 'Pharmacy Management System' },
+    description: {
+      es: 'Aplicación de escritorio en Java (Swing) para la gestión de una farmacia, con conexión a una base de datos MySQL.',
+      en: 'Java (Swing) desktop application for pharmacy management, with connection to a MySQL database.',
+    },
     images: [
       farmacia1,
       farmacia2,
@@ -54,8 +53,11 @@ export const projectsData = [
   },
   {
     id: '03',
-    title: 'Comercializadora de Seguros',
-    description: 'Desktop application in C# (WinForms) for the management of an insurance marketing company with generation of PDF certificates.',
+    title: { es: 'Comercializadora de Seguros', en: 'Insurance Marketing Company' },
+    description: {
+      es: 'Aplicación de escritorio en C# (WinForms) para la gestión de una comercializadora de seguros, con generación de certificados en PDF.',
+      en: 'Desktop application in C# (WinForms) for the management of an insurance marketing company with generation of PDF certificates.',
+    },
     images: [
       comercializador1,
       comercializador2,

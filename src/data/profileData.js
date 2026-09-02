@@ -1,4 +1,3 @@
-
 import CsharpIcon from '../assets/icons/csharp.svg';
 import JavaIcon from '../assets/icons/java.svg';
 import SpringBootIcon from '../assets/icons/spring.svg';
@@ -11,17 +10,24 @@ import profilePhoto from '../assets/images/profile-photo.jpg';
 
 export const profile = {
   name: 'Ronald',
-  role: "I'm a Software Developer",
-  headline: 'I turn ideas into digital solutions.',
-  bio: "I'm a Software Development student focused on building full-stack applications using modern technologies, with a strong interest in backend development, databases and scalable software solutions.",
+  role: { es: 'Soy Desarrollador de Software', en: "I'm a Software Developer" },
+  headline: { es: 'Convierto ideas en soluciones digitales', en: 'I turn ideas into digital solutions.' },
+  bio: { es: 'Soy estudiante de Desarrollo de Software, enfocado en construir aplicaciones full-stack' + 
+    'usando tecnologías modernas, con especial interés en desarrollo backend, bases de datos y soluciones de software escalables.',
+     en: "I'm a Software Development student focused on building full-stack applications using modern technologies, with a strong" + 
+     " interest in backend development, databases and scalable software solutions." },
   photoUrl: profilePhoto,
-  photoAlt: 'Tu Foto de Perfil',
+  photoAlt: { es: 'Mi foto de Perfil', en: 'My Profile Photo' },
   cvFile: {
+    // Para agregar una hoja de vida distinta por idioma, pongo un
+    // segundo PDF (ej. Resume-Ronald-EN.pdf) y uso href/downloadName
+    // como objetos {es, en} igual que los demás campos.
     href: '/Hoja-de-Vida-Ronald.pdf',
     downloadName: 'Hoja-de-Vida-Ronald.pdf',
   },
 };
 
+// Nombres de las tecnologías
 export const techStack = [
   { name: 'C#', icon: CsharpIcon },
   { name: 'Java', icon: JavaIcon },

@@ -1,17 +1,21 @@
 import React from 'react';
 import { techStackData } from '../data/techstackData';
+import { useLanguage, t } from '../context/LanguageContext';
+
+const uiText = {
+  heading: { es: 'Tecnologías con las que trabajo', en: 'Technologies I work with' },
+};
 
 export default function TechCarousel() {
-  // Duplicamos el array para que el scroll parezca infinito y sin cortes
+  const { language } = useLanguage();
   const doubleTechnologies = [...techStackData, ...techStackData];
 
   return (
     <div className="pt-8 space-y-4 text-center w-full max-w-4xl mx-auto overflow-hidden">
       <p className="text-xs uppercase font-semibold text-slate-500 tracking-wider">
-        Technologies I work with
+        {t(uiText.heading, language)}
       </p>
 
-      {/* Contenedor con efecto de degradado/desvanecido en los bordes */}
       <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <div className="animate-marquee flex gap-4 py-2 w-max">
           {doubleTechnologies.map((tech, index) => (

@@ -1,12 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import StarRating from './StarRating';
+import { useLanguage, t } from '../context/LanguageContext';
+
+const uiText = {
+  viewDetails: { es: 'Ver detalles', en: 'View details' },
+  masteryLevel: { es: 'Nivel de dominio', en: 'Mastery level' },
+  close: { es: 'Cerrar', en: 'Close' },
+};
 
 export default function SkillBadge({ icon, name, note, level }) {
+  const { language } = useLanguage();
   const [isActive, setIsActive] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const wrapperRef = useRef(null);
 
-  // En touch, un toque fuera de la tarjeta debe ocultar el botón otra vez
   useEffect(() => {
     if (!isActive) return;
     const handleOutsideTouch = (e) => {
@@ -18,7 +25,6 @@ export default function SkillBadge({ icon, name, note, level }) {
     return () => document.removeEventListener('touchstart', handleOutsideTouch);
   }, [isActive]);
 
-  // Cierra con la tecla Escape
   useEffect(() => {
     if (!expanded) return;
     const onKeyDown = (e) => {
@@ -30,11 +36,7 @@ export default function SkillBadge({ icon, name, note, level }) {
 
   return (
     <>
-      {/* El wrapper "group" es más alto que la tarjeta visual (pb-8 invisible,
-          sin fondo/borde propio) para que el hover no se corte en el hueco
-          entre la tarjeta y el botón — así el cursor nunca sale del área
-          sensible al moverse hacia abajo. */}
-      <div 
+      <div
         ref={wrapperRef}
         className="group relative pb-3"
         onMouseEnter={() => setIsActive(true)}
@@ -46,7 +48,6 @@ export default function SkillBadge({ icon, name, note, level }) {
           <span className="text-xs font-semibold text-slate-200 text-center">{name}</span>
         </div>
 
-        {/* Botón que aparece debajo al hacer hover */}
         <button
           type="button"
           onClick={() => setExpanded(true)}
@@ -58,7 +59,7 @@ export default function SkillBadge({ icon, name, note, level }) {
                          : 'opacity-0 translate-y-1 pointer-events-none'
                      }`}
         >
-          Ver detalles
+          {t(uiText.viewDetails, language)}
         </button>
       </div>
 
@@ -75,7 +76,7 @@ export default function SkillBadge({ icon, name, note, level }) {
             <button
               type="button"
               onClick={() => setExpanded(false)}
-              aria-label="Cerrar"
+              aria-label={t(uiText.close, language)}
               className="absolute top-3 right-3 text-slate-500 hover:text-white transition-colors text-sm"
             >
               ✕
@@ -83,11 +84,11 @@ export default function SkillBadge({ icon, name, note, level }) {
 
             <img src={icon} alt={name} className="w-14 h-14 object-contain mx-auto" />
             <h3 className="text-lg font-bold text-white">{name}</h3>
-            <p className="text-sm text-slate-400 leading-relaxed">{note}</p>
+            <p className="text-sm text-slate-400 leading-relaxed">{t(note, language)}</p>
 
             <div className="flex flex-col items-center gap-1 pt-2">
               <span className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">
-                Nivel de dominio
+                {t(uiText.masteryLevel, language)}
               </span>
               <StarRating level={level} />
             </div>

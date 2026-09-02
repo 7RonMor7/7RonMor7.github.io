@@ -4,23 +4,27 @@ import linkedinIcon from '../assets/icons/linkedin.svg';
 import instagramIcon from '../assets/images/instagram.png';
 
 export const contactIntro = {
-  badge: "LET'S WORK TOGETHER",
-  heading: 'Have a project in mind?',
-  title: "Let's build something amazing together!",
-  text: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+  badge: { es: 'TRABAJEMOS JUNTOS', en: "LET'S WORK TOGETHER" },
+  heading: { es: '¿Tienes un proyecto en mente?', en: 'Have a project in mind?' },
+  title: { es: '¡Construyamos algo increíble juntos!', en: "Let's build something amazing together!" },
+  text: { 
+    es: 'Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades para ser parte de tu visión.', 
+    en: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision." },
 };
 
 /*
 // Testimonial de ejemplo, para utilizar probablemete más adelante.
 export const testimonial = {
-  quote:
-    'Alex is an exceptional developer who delivers high-quality work on time. His attention to detail and problem-solving skills are outstanding.',
+  quote: {
+    es: 'Alex es un desarrollador excepcional que entrega trabajo de alta calidad a tiempo. Su atención al detalle y habilidades de resolución de problemas son sobresalientes.',
+    en: 'Alex is an exceptional developer who delivers high-quality work on time. His attention to detail and problem-solving skills are outstanding.',
+  },
   authorName: 'Sarah Johnson',
-  authorRole: 'CEO, TechStart',
+  authorRole: { es: 'CEO, TechStart', en: 'CEO, TechStart' },
   authorPhoto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
 };*/
 
-// TODO: reemplaza "#" por las URLs reales de tus perfiles
+// Nombres de redes sociales: no se traducen (son nombres propios)
 export const socialLinks = [
   { name: 'GitHub', href: 'https://github.com/7RonMor7', icon: githubIcon },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/ronald-moreno-53a1702a5/', icon: linkedinIcon },

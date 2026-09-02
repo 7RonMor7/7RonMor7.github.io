@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { navItems } from '../data/navigation';
+import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navbar({ activeTab, setActiveTab }) {
+  const { language } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const goTo = (item) => {
-    setActiveTab(item);
+  const goTo = (key) => {
+    setActiveTab(key);
     setMenuOpen(false); // cierra el menú móvil al navegar
   };
 
@@ -26,16 +29,16 @@ export default function Navbar({ activeTab, setActiveTab }) {
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <button
-              key={item}
-              onClick={() => goTo(item)}
-              aria-current={activeTab === item ? 'page' : undefined}
+              key={item.key}
+              onClick={() => goTo(item.key)}
+              aria-current={activeTab === item.key ? 'page' : undefined}
               className={`relative text-sm font-medium px-3.5 py-1.5 rounded-lg transition-colors duration-200 ${
-                activeTab === item
+                activeTab === item.key
                   ? 'text-white bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-600'
                   : 'text-slate-400 hover:text-white hover:bg-blue-500/80'
               }`}
             >
-              {item}
+              {item[language]}
               {/*{activeTab === item && (
                 <span className="navbar-active-indicator absolute bottom-0 left-0 w-full h-[2px] bg-blue-500 rounded-full" />
               )}*/}
@@ -45,6 +48,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
 
         {/* Botón de Acción Hire Me */}
         <div className="hidden md:flex items-center gap-4">
+          <LanguageToggle />
           <button
             onClick={() => goTo('Contact')}
             className="bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-600 hover:from-cyan-500 hover:via-blue-400 hover:to-blue-600 text-white font-medium text-sm px-5 py-2.5 rounded-lg shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 flex items-center gap-2"
@@ -78,23 +82,26 @@ export default function Navbar({ activeTab, setActiveTab }) {
         <nav className="navbar-mobile-menu md:hidden mt-4 flex flex-col gap-4 px-2">
           {navItems.map((item) => (
             <button
-              key={item}
-              onClick={() => goTo(item)}
+              key={item.key}
+              onClick={() => goTo(item.key)}
               className={`text-left text-sm font-medium px-4 py-2.5 rounded-lg transition-all duration-200 ${
-                activeTab === item 
+                activeTab === item.key 
                 ? 'text-white bg-blue-500/80 font-semibold' 
                 : 'text-slate-400 hover:text-white hover:bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-600'
               }`}
             >
-              {item}
+              {item[language]}
             </button>
           ))}
-          <button
-            onClick={() => goTo('Contact')}
-            className="bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-600 hover:from-cyan-500 hover:via-blue-400 hover:to-blue-600 text-white font-medium text-sm px-5 py-2.5 rounded-lg text-center transition-all duration-200"
-          >
-            Hire Me
-          </button>
+          <div className="flex items-center justify-between px-2 pt-2">
+            <LanguageToggle />
+            <button
+              onClick={() => goTo('Contact')}
+              className="bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-600 hover:from-cyan-500 hover:via-blue-400 hover:to-blue-600 text-white font-medium text-sm px-6 py-2.5 rounded-lg text-center transition-all duration-200"
+            >
+              Hire Me
+            </button>
+          </div>
         </nav>
       )}
     </header>
