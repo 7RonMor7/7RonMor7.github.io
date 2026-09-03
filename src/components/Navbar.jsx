@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { navItems } from '../data/navigation';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage, t } from '../context/LanguageContext';
 import LanguageToggle from './LanguageToggle';
+
+const uiText = {
+  hireMe: { es: 'Contrátame', en: 'Hire Me'},
+}
 
 export default function Navbar({ activeTab, setActiveTab }) {
   const { language } = useLanguage();
@@ -53,7 +57,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
             onClick={() => goTo('Contact')}
             className="bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-600 hover:from-cyan-500 hover:via-blue-400 hover:to-blue-600 text-white font-medium text-sm px-5 py-2.5 rounded-lg shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 flex items-center gap-2"
           >
-            Hire Me
+            {t(uiText.hireMe, language)}
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -99,7 +103,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
               onClick={() => goTo('Contact')}
               className="bg-gradient-to-r from-cyan-500 via-blue-400 to-blue-600 hover:from-cyan-500 hover:via-blue-400 hover:to-blue-600 text-white font-medium text-sm px-6 py-2.5 rounded-lg text-center transition-all duration-200"
             >
-              Hire Me
+              {t(uiText.hireMe, language)}
             </button>
           </div>
         </nav>
