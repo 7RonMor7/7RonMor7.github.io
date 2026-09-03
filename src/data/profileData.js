@@ -13,7 +13,7 @@ export const profile = {
   role: { es: 'Soy Desarrollador de Software', en: "I'm a Software Developer" },
   headline: { es: 'Convierto ideas en soluciones digitales', en: 'I turn ideas into digital solutions.' },
   bio: { es: 'Soy estudiante de Desarrollo de Software, enfocado en construir aplicaciones full-stack' + 
-    'usando tecnologías modernas, con especial interés en desarrollo backend, bases de datos y soluciones de software escalables.',
+    ' usando tecnologías modernas, con especial interés en desarrollo backend, bases de datos y soluciones de software escalables.',
      en: "I'm a Software Development student focused on building full-stack applications using modern technologies, with a strong" + 
      " interest in backend development, databases and scalable software solutions." },
   photoUrl: profilePhoto,
