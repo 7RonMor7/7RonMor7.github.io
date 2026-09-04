@@ -19,6 +19,7 @@ export default function ProjectCard({ project }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const intervalRef = useRef(null);
+  const cardRef = useRef(null);
   const hasMultipleImages = project.images.length > 1;
 
   const title = t(project.title, language);
@@ -26,6 +27,7 @@ export default function ProjectCard({ project }) {
 
   const startCycling = () => {
     if (!hasMultipleImages) return;
+    clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setImageIndex((prev) => (prev + 1) % project.images.length);
     }, CYCLE_INTERVAL_MS);
@@ -36,14 +38,42 @@ export default function ProjectCard({ project }) {
     setImageIndex(0);
   };
 
-  useEffect(() => () => clearInterval(intervalRef.current), []);
+  // En pantallas táctiles: en vez de depender de un toque, la tarjeta rota
+  // sola SOLO mientras está realmente visible en pantalla (Intersection
+  // Observer). Así, si tienes varias tarjetas con múltiples imágenes, no
+  // todas animan a la vez fuera de vista — se pausan cuando salen del
+  // viewport y retoman cuando vuelven a aparecer al hacer scroll.
+  // En desktop, el comportamiento sigue siendo por hover (sin cambios).
+  useEffect(() => {
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    if (!isTouchDevice || !hasMultipleImages || !cardRef.current) return;
+ 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startCycling();
+        } else {
+          stopCycling();
+        }
+      },
+      { threshold: 0.5 } // se considera "visible" con el 50% de la tarjeta en pantalla
+    );
+ 
+    observer.observe(cardRef.current);
+ 
+    return () => {
+      observer.disconnect();
+      clearInterval(intervalRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
+      ref={cardRef}
       className="bg-slate-900/60 border border-slate-800/80 rounded-2xl overflow-hidden hover:border-blue-500/80 transition-all hover:bg-slate-900/90 group flex flex-col justify-between"
       onMouseEnter={startCycling}
       onMouseLeave={stopCycling}
-      onTouchStart={startCycling}
     >
       <div>
         {/* Imagen del proyecto con overlay e id */}

@@ -1,7 +1,7 @@
 import React from 'react';
 import AvailabilityCard from '../components/AvailabilityCard';
 import ContactForm from '../components/ContactForm';
-import SocialLinks from '../components/SocialLinks';
+import SocialLinks from '../components/Sociallinks';
 import { contactIntro, socialLinks } from '../data/contactData';
 import { useLanguage, t } from '../context/LanguageContext';
 
@@ -57,7 +57,7 @@ export default function ContactSection({ setActiveTab }) {
           <AvailabilityCard onSeeEducation={setActiveTab ? () => setActiveTab('Education') : undefined} />
 
           {/* Redes */}
-          <div className="space-y-3 pt-2">
+          <div className="space-y-3 pt-2 ">
             <p className="text-xs uppercase font-semibold text-slate-500 tracking-wider">
               {t(uiText.followMe, language)}
             </p>

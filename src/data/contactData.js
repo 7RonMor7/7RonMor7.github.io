@@ -26,9 +26,27 @@ export const testimonial = {
 
 // Nombres de redes sociales: no se traducen (son nombres propios)
 export const socialLinks = [
-  { name: 'GitHub', href: 'https://github.com/7RonMor7', icon: githubIcon },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/ronald-moreno-53a1702a5/', icon: linkedinIcon },
-  { name: 'Instagram', href: 'https://www.instagram.com/ronaldmor_7/', icon: instagramIcon },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/7RonMor7',
+    icon: githubIcon,
+    color: '#f0f6fc',
+    aura: 'rgba(240, 246, 252, 0.35)',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/ronald-moreno-53a1702a5/',
+    icon: linkedinIcon,
+    color: '#0A66C2',
+    aura: 'rgba(10, 102, 194, 0.45)',
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/ronaldmor_7/',
+    icon: instagramIcon,
+    color: '#E1306C',
+    aura: 'rgba(225, 48, 108, 0.45)',
+  },
 ];
 
 // Por ahora desactivado.
