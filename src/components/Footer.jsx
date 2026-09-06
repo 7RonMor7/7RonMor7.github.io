@@ -20,7 +20,7 @@ export default function Footer({ setActiveTab }) {
 
   return (
     <footer className="border-t border-slate-800/80 bg-[#0b0f19] mt-20 py-6 px-6 text-slate-400 text-xs">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
 
         {/* Izquierda: Derechos reservados */}
         <p>© {year} {profile.name} {t(uiText.rights, language)}</p>
@@ -39,8 +39,8 @@ export default function Footer({ setActiveTab }) {
         </div>
 
         {/* Derecha: Crédito de diseño */}
-        <p className="flex items-center gap-1">
-          {t(uiText.madeWith, language)} <span className="text-red-500">❤️</span> {t(uiText.by, language)} {profile.name}
+        <p className="flex items-center gap-1.5">
+          {t(uiText.madeWith, language)} <span className="text-red-500">❤️‍🔥</span> {t(uiText.by, language)} {profile.name}
         </p>
       </div>
     </footer>
