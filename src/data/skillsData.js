@@ -4,6 +4,7 @@
 
 import HTMLIcon from '../assets/icons/html5.svg';
 import CSSIcon from '../assets/icons/css3.svg';
+import TailwindIcon from '../assets/icons/tailwindcss.svg';
 import JavaScriptIcon from '../assets/icons/javascript.svg';
 import ReactIcon from '../assets/icons/react.svg';
 import JavaIcon from '../assets/icons/java.svg';
@@ -28,6 +29,7 @@ export const skillCategories = [
     skills: [
       { name: 'HTML', icon: HTMLIcon, note: { es: 'Estructura semántica y accesible', en: 'Semantic and accessible markup' }, level: 3 },
       { name: 'CSS', icon: CSSIcon, note: { es: 'Layouts responsivos y animaciones', en: 'Responsive layouts and animations' }, level: 3 },
+      { name: 'Tailwind', icon: TailwindIcon, note: { es: 'Framework de utilidades CSS', en: 'CSS utility framework' }, level: 3 },
       { name: 'JavaScript', icon: JavaScriptIcon, note: { es: 'Lógica del lado del cliente', en: 'Client-side logic' }, level: 4 },
       { name: 'React', icon: ReactIcon, note: { es: 'Interfaces basadas en componentes', en: 'Component-based interfaces' }, level: 4 },
     ],
