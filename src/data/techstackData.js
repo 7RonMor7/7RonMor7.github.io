@@ -5,6 +5,7 @@ import SpringBootIcon from '../assets/icons/spring.svg';
 import JavaScriptIcon from '../assets/icons/javascript.svg';
 import ReactIcon from '../assets/icons/react.svg';
 import NodeIcon from '../assets/icons/nodejs.svg';
+import MySQLIcon from '../assets/icons/mysql.svg';
 import GitIcon from '../assets/icons/git.svg';
 
 export const techStackData = [
@@ -14,6 +15,7 @@ export const techStackData = [
   { name: 'JavaScript', icon: JavaScriptIcon },
   { name: 'React', icon: ReactIcon },
   { name: 'Node.js', icon: NodeIcon },
+  { name: 'MySQL', icon: MySQLIcon },
   { name: 'Git', icon: GitIcon },
 ];
 
