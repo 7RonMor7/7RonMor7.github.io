@@ -12,6 +12,7 @@ import SpringBootIcon from '../assets/icons/spring.svg';
 import CsharpIcon from '../assets/icons/csharp.svg';
 import DotNetIcon from '../assets/icons/dotnetcore.svg';
 import SQLServerIcon from '../assets/icons/microsoftsqlserver.svg';
+import MySQLIcon from '../assets/icons/mysql.svg';
 import MongoDBIcon from '../assets/icons/mongodb.svg';
 import GitIcon from '../assets/icons/git.svg';
 import GitHubIcon from '../assets/icons/github.svg';
@@ -50,6 +51,7 @@ export const skillCategories = [
     label: { es: 'Bases de Datos', en: 'Databases' },
     skills: [
       { name: 'SQL Server', icon: SQLServerIcon, note: { es: 'Bases de datos relacionales', en: 'Relational databases' }, level: 4 },
+      { name: 'MySQL', icon: MySQLIcon, note: { es: 'Bases de datos relacionales', en: 'Relational databases' }, level: 4 },
       { name: 'MongoDB', icon: MongoDBIcon, note: { es: 'Bases de datos NoSQL', en: 'NoSQL databases' }, level: 3 },
     ],
   },
