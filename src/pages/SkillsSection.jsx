@@ -1,18 +1,26 @@
 import React from 'react';
 import SkillBadge from '../components/SkillBadge';
+import HintBagde from '../components/HintBadge';
 import { skillCategories } from '../data/skillsData';
 import { useLanguage, t } from '../context/LanguageContext';
 
 const uiText = {
   badge: { es: 'MIS HABILIDADES', en: 'MY SKILLS' },
   heading: { es: 'Tecnologías que domino', en: 'Technologies I Master' },
+  hint: {
+    es: 'Pasa el cursor sobre una tecnología para ver más detalles',
+    en: 'Hover over a technology to see more details',
+  },
 };
 
 export default function SkillsSection() {
   const { language } = useLanguage();
 
   return (
-    <section className="py-6 space-y-10 animate-fade-in">
+    // "relative" es necesario para que el HintBadge se posicione correctamente en la esquina superior derecha de la sección.
+    <section className="relative py-6 space-y-10 animate-fade-in">
+      <HintBagde text={uiText.hint} />
+      
       {/* Encabezado de la sección */}
       <div className="text-center space-y-3">
         <span className="bg-cyan-950/60 text-cyan-400 border border-cyan-600/30 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase">
