@@ -18,6 +18,7 @@ import GitHubIcon from '../assets/icons/github.svg';
 import VisualStudioIcon from '../assets/icons/visualstudio.svg';
 import VSCodeIcon from '../assets/icons/vscode.svg';
 import IntelliJIcon from '../assets/icons/intellij.svg';
+import ClaudeIcon from '../assets/icons/claude.svg';
 
 /*const devicon = (slug, variant = 'original') =>
   `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${slug}/${slug}-${variant}.svg`;*/
@@ -61,6 +62,7 @@ export const skillCategories = [
       { name: 'Visual Studio', icon: VisualStudioIcon, note: { es: 'IDE para C# / .NET', en: 'IDE for C# / .NET' }, level: 3 },
       { name: 'VS Code', icon: VSCodeIcon, note: { es: 'Editor de código principal', en: 'Primary code editor' }, level: 4 },
       { name: 'IntelliJ IDEA', icon: IntelliJIcon, note: { es: 'IDE para Java / Spring Boot', en: 'IDE for Java / Spring Boot' }, level: 4 },
+      { name: 'Claude', icon: ClaudeIcon, note: { es: 'Asistente de IA para desarrollo', en: 'AI assistant for development' }, level: 4 },
     ],
   },
 ];
