@@ -36,20 +36,29 @@ function CursorIcon(){
   );
 }
 
+/** Mano tocando la pantalla, con ondas que se expanden desde el punto de contacto. */
 function TapIcon(){
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-3.5 w-3.5 shrink-0 animate-hint-nudge"
-      fill="none"
+      className="h-4 w-4 shrink-0"
       viewBox="0 0 24 24"
-      stroke="currentColor"
+      fill="none"
     >
+      {/* Ondas del toque */}
+      <circle
+        cx="10.5"
+        cy="6.5"
+        r="7"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        className="animate-hint-ripple"
+      />
+      {/* Mano haciendo tap */}
       <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59"
+        className="animate-hint-tap"
+        fill="currentColor"
+        d="M18.19 12.44l-3.24-1.62c1.29-1 2.12-2.56 2.12-4.32 0-3.03-2.47-5.5-5.5-5.5s-5.5 2.47-5.5 5.5c0 2.13 1.22 3.98 3 4.89v3.26c-2.15-.46-2.02-.44-2.26-.44-.53 0-1.03.21-1.41.59L4 16.22l5.09 5.09c.43.44 1.03.69 1.65.69h6.4c.94 0 1.74-.7 1.86-1.63l.5-3.68c.14-1.02-.39-2-1.31-2.46zm-.19 5.86L17.5 20h-6.4c-.35 0-.68-.14-.92-.38L5.82 15.2l3.15.66V6.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5.5h1.38l4.96 2.48c.33.16.53.51.48.87l-.79.95z"
       />
     </svg>
   );
