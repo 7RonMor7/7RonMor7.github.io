@@ -11,13 +11,17 @@ const uiText = {
     es: 'Pasa el cursor sobre una tecnología para ver más detalles',
     en: 'Hover over a technology to see more details',
   },
+  hintTouch: {
+    es: 'Toca una tecnología para ver más detalles',
+    en: 'Tap a technology to see more details',
+  },
 };
 
 export default function SkillsSection() {
   const { language } = useLanguage();
 
   return (
-    // "relative" es necesario para que el HintBadge se posicione correctamente en la esquina superior derecha de la sección.
+    // "relative" es necesario para posicionar la version desktop del HintBadge en la esquina superior derecha de la sección
     <section className="relative py-6 space-y-10 animate-fade-in">
       <HintBagde text={uiText.hint} />
       
@@ -30,6 +34,10 @@ export default function SkillsSection() {
           {t(uiText.heading, language)}
         </h2>
       </div>
+
+      {/* Va después del encabezado: en desktop se ancla igual en la esquina
+          (es absolute), y en móvil queda centrada justo debajo del título. */}
+      <HintBadge text={uiText.hint} touchText={uiText.hintTouch} />
 
       {/* Una sección por categoría */}
       <div className="max-w-5xl mx-auto space-y-10 text-center">
