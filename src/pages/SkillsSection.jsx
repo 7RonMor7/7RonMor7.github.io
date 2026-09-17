@@ -21,9 +21,8 @@ export default function SkillsSection() {
   const { language } = useLanguage();
 
   return (
-    // "relative" es necesario para posicionar la version desktop del HintBadge en la esquina superior derecha de la sección
+    // "relative" es necesario para posicionar la version desktop del HintBadge
     <section className="relative py-6 space-y-10 animate-fade-in">
-      <HintBagde text={uiText.hint} />
       
       {/* Encabezado de la sección */}
       <div className="text-center space-y-3">
@@ -37,7 +36,7 @@ export default function SkillsSection() {
 
       {/* Va después del encabezado: en desktop se ancla igual en la esquina
           (es absolute), y en móvil queda centrada justo debajo del título. */}
-      <HintBadge text={uiText.hint} touchText={uiText.hintTouch} />
+      <HintBagde text={uiText.hint} touchText={uiText.hintTouch} />
 
       {/* Una sección por categoría */}
       <div className="max-w-5xl mx-auto space-y-10 text-center">
