@@ -35,7 +35,7 @@ export const socialLinks = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/ronald-moreno-53a1702a5/',
+    href: 'https://www.linkedin.com/in/ronald-moreno-dev/',
     icon: linkedinIcon,
     color: '#0A66C2',
     aura: 'rgba(10, 102, 194, 0.45)',
